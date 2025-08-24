@@ -1,0 +1,826 @@
+{
+  "info": {
+    "name": "DriveZone API",
+    "_postman_id": "drivezone-api-collection",
+    "description": "Повна колекція ендпоінтів для DriveZone",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register Buyer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/register/buyer/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "register",
+                "buyer"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"buyer1\",\n  \"email\": \"buyer1@example.com\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Register Seller",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/register/seller/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "register",
+                "seller"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"seller1\",\n  \"email\": \"seller1@example.com\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Register Manager",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/register/manager/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "register",
+                "manager"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"manager1\",\n  \"email\": \"manager1@example.com\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Obtain JWT Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/token/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "token"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"buyer1@example.com\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Refresh JWT Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/token/refresh/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "token",
+                "refresh"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"<your_refresh_token_here>\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "List Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get User Detail",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Ban User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/ban-user/2/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ban-user",
+                "2"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Unban User",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/ban-user/2/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ban-user",
+                "2"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Car Brands & Models",
+      "item": [
+        {
+          "name": "List Brands",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/brands/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "brands"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Brand",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/brands/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "brands"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Toyota\"\n}"
+            }
+          }
+        },
+        {
+          "name": "List Models",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/models/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "models"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Model",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/models/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "models"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Corolla\",\n  \"brand\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Report Brand",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/report/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "report"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand_name\": \"UnknownBrand\",\n  \"message\": \"Please add this brand.\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Car Ads",
+      "item": [
+        {
+          "name": "List Ads",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cars/ad/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cars",
+                "ad"
+              ]
+            }
+          }
+        },
+        {
+          "name": "View Ad",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cars/ad/1/view/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cars",
+                "ad",
+                "1",
+                "view"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Ad",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cars/ad/create/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cars",
+                "ad",
+                "create"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\":\"Car Title\",\n  \"description\":\"Car Description\",\n  \"price\":10000,\n  \"year\":2022,\n  \"currency\":\"USD\",\n  \"brand\":\"Toyota\",\n  \"model\":\"Corolla\",\n  \"city\":\"Kyiv\",\n  \"country\":\"Ukraine\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Ad",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cars/ad/1/delete/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cars",
+                "ad",
+                "1",
+                "delete"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Ad",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cars/ad/1/update/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cars",
+                "ad",
+                "1",
+                "update"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\":\"Updated Title\",\n  \"price\":12000\n}"
+            }
+          }
+        },
+        {
+          "name": "Block Ad",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cars/ad/block/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cars",
+                "ad",
+                "block",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Filter Ads",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cars/ad/filter/?brand=Toyota&status=active",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cars",
+                "ad",
+                "filter"
+              ],
+              "query": [
+                {
+                  "key": "brand",
+                  "value": "Toyota"
+                },
+                {
+                  "key": "status",
+                  "value": "active"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Approve Ad",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cars/ad/1/approve/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cars",
+                "ad",
+                "1",
+                "approve"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Ad Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cars/ad/1/stats/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cars",
+                "ad",
+                "1",
+                "stats"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Exchange Rates",
+      "item": [
+        {
+          "name": "Get Exchange Rates",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/exchange-rates/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "exchange-rates"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dealers",
+      "item": [
+        {
+          "name": "List Dealers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/dealers/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dealers"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Dealer Detail",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/dealers/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dealers",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Dealer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/dealers/create/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dealers",
+                "create"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dealer Name\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Dealer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/dealers/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dealers",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Dealer Name\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Dealer",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/dealers/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dealers",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },{
+  "name": "Premium",
+  "item": [
+    {
+      "name": "Upgrade to Premium",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/upgrade-to-premium/",
+          "host": ["{{base_url}}"],
+          "path": ["upgrade-to-premium"]
+        }
+      }
+    },
+    {
+      "name": "Activate Premium",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/premium/activate/",
+          "host": ["{{base_url}}"],
+          "path": ["premium","activate"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"token\": \"<your_premium_token_here>\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Generate Premium Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/premium/generate/",
+          "host": ["{{base_url}}"],
+          "path": ["premium","generate"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": 1\n}"
+        }
+      }
+    }
+  ]
+}
+
+  ]
+}

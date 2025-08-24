@@ -1,0 +1,26 @@
+# Базовий образ з Python та уже встановленим libpq
+FROM python:3.13-slim
+
+# Робоча директорія
+WORKDIR /app
+
+# Встановлюємо системні залежності, потрібні для psycopg2
+RUN apt-get update && apt-get install -y gcc libpq-dev curl && rm -rf /var/lib/apt/lists/*
+
+# Копіюємо poetry
+RUN curl -sSL https://install.python-poetry.org | python3 -
+
+# Додаємо Poetry в PATH
+ENV PATH="/root/.local/bin:$PATH"
+
+# Копіюємо файли проекту
+COPY pyproject.toml poetry.lock ./
+
+# Встановлюємо залежності
+RUN poetry install --no-root --only main
+
+# Копіюємо весь проект
+COPY . .
+
+# Команда запуску сервера
+CMD ["poetry", "run", "gunicorn", "backend.wsgi:application", "--bind", "0.0.0.0:8000"]
